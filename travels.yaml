@@ -1,0 +1,68 @@
+# ─────────────────────────────────────────────────────────────
+#  Екскурзии за следене (travelwithus.bg)
+# ─────────────────────────────────────────────────────────────
+#
+#  Всеки ред в travels е линк към страница на екскурзия от вида
+#  https://travelwithus.bg/tour/<име>/ – добавиш ли нов, проверката
+#  тръгва веднага (при push в main) и после е в ежедневния цикъл.
+#
+#  Може и като обект:
+#    - url: https://travelwithus.bg/tour/gruzia/
+#      name: Грузия        # (по избор) твое кратко име; иначе заглавието от сайта
+#      active: false       # (по избор) спира проверката, историята се пази
+# ─────────────────────────────────────────────────────────────
+
+settings:
+  # Кого търсиш за споделена стая: мъж | жена | any.
+  # Силно известие в Slack идва, когато на някоя дата се появи
+  # „<този пол> за комбинация“ (или „за комбинация“ без посочен пол).
+  combination: мъж
+
+  # true = известие и когато се търси другият пол
+  notify_any_combination: false
+
+  # Другите новини се събират в едно общо съобщение на проверка:
+  notify_new_dates: true          # нова дата на екскурзия
+  notify_price_changes: true      # цената се е променила
+  notify_last_seats: 2            # „последни места“ или остават <= N места (0 = изключено)
+  notify_available_again: true    # дата, която беше без места, пак има
+
+  # Да праща ли в Slack съобщение, ако някой линк не може да бъде прочетен…
+  notify_on_errors: true
+  # …и след колко поредни неуспешни проверки (сайтът понякога не пуска
+  # автоматични заявки до отделна страница – на другия ден обикновено минава)
+  notify_errors_after: 3
+
+  # false = всяко нещо се съобщава само първия път, когато се появи
+  # true  = всеки ден напомняне, докато има дата с комбинация
+  repeat_alerts_daily: false
+
+  # Пауза между заявките към сайта (секунди)
+  request_delay: 5
+
+travels:
+  # Кавказ, Хималаи, Пакистан
+  - https://travelwithus.bg/tour/gruzia/
+  - https://travelwithus.bg/tour/india-nepal-butan/
+  - https://travelwithus.bg/tour/ekskurziya-india-nepal/
+  - https://travelwithus.bg/tour/nepal-butan-himalai/
+  - https://travelwithus.bg/tour/nepal-butan-tour/
+  - https://travelwithus.bg/tour/nepal-butan-izgubeni-kralstva/
+  - https://travelwithus.bg/tour/butan-nepal/
+  - https://travelwithus.bg/tour/nepal-mustang-butan/
+  - https://travelwithus.bg/tour/pakistan-tour/
+
+  # Югоизточна Азия, Шри Ланка, Малдиви
+  - https://travelwithus.bg/tour/singapore-malaysia-java-bali/
+  - https://travelwithus.bg/tour/bali/
+  - https://travelwithus.bg/tour/sry-lanka/
+  - https://travelwithus.bg/tour/ekskurzia-sri-lanka-madivi/
+  - https://travelwithus.bg/tour/sri-lanka-maldives/
+  - https://travelwithus.bg/tour/ekskurzia-sri-lanka-pochivka-maldivi/
+
+  # Южна и Централна Америка
+  - https://travelwithus.bg/tour/brazilia-karnaval-rio-argentina-urugvai/
+  - https://travelwithus.bg/tour/ekskurzia-brazil-argentina-patagonia/
+  - https://travelwithus.bg/tour/agrentina-tour-patagonia-ushuaia/
+  - https://travelwithus.bg/tour/costa-rica/
+  - https://travelwithus.bg/tour/costa-rika-panama/
